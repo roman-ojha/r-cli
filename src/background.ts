@@ -23,6 +23,7 @@ async function createWindow() {
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
     },
     icon: __dirname + "/assets/ico/appicon.ico",
+    frame: false,
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
