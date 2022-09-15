@@ -1,5 +1,8 @@
 <template>
-  <div id="container">
+  <div
+    id="container"
+    class="w-[calc(100%-20px)] h-[calc(100vh-20px)] bg-blue-200 absolute top-20px left-20px before:content-[''] before:top-0 before:left-0 before:w-full before:h-full before:absolute before:bg-playgroundImage before:bg-no-repeat before:bg-center before:bg-cover before:saturate-10 before:contrast-140 before:brightness-50"
+  >
     <div id="container-inside"></div>
   </div>
 </template>
@@ -14,27 +17,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-/* #container {
-  width: calc(100% - 20px);
-  height: calc(100vh - 20px);
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  object-fit: cover;
-  display: flex;
-}
-#container::before {
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url("../assets/images/background_image.png");
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
-  filter: saturate(0.1) contrast(1.4) brightness(0.5);
-} */
-</style>
+<style scoped></style>

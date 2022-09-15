@@ -1,5 +1,5 @@
 <template>
-  <div id="container"></div>
+  <div id="container" class="w-20px bg-red-500 h-[calc(100vh-20px)]"></div>
 </template>
 
 <script lang="ts">
@@ -11,8 +11,6 @@ export default defineComponent({
 
 <style scoped>
 /* #container {
-  width: 20px;
   height: calc(100vh - 20px);
-  background-color: white;
 } */
 </style>

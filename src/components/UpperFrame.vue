@@ -2,7 +2,7 @@
   <div
     id="container"
     style="-webkit-app-region: drag"
-    class="w-full h-5 bg-red-600"
+    class="w-full h-20px bg-red-500"
   ></div>
 </template>
 
@@ -13,10 +13,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-/* #container {
-  width: 100%;
-  height: 20px;
-  background-color: white;
-} */
-</style>
+<style scoped></style>
