@@ -27,6 +27,15 @@ module.exports = {
       },
       backgroundColor: {
         "282828-900": "#3f3f3fde",
+        "close-button": "#FF5252",
+        "max-min-win-button": "#2CEC56",
+        "minimize-button": "#E6E950",
+        "close-button-hover": "#ff9191",
+        "max-min-win-button-hover": "#afffc0",
+        "minimize-button-hover": "#feffb1",
+      },
+      margin: {
+        "10vw": "5vw",
       },
     },
     fontFamily: {

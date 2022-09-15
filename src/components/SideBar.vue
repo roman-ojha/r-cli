@@ -9,8 +9,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-/* #container {
-  height: calc(100vh - 20px);
-} */
-</style>
+<style scoped></style>
