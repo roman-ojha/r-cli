@@ -2,7 +2,7 @@
   <div
     id="container"
     style="-webkit-app-region: drag"
-    class="w-full h-20px bg-red-500"
+    class="w-full h-upperFrame bg-black"
   ></div>
 </template>
 

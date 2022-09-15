@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class="w-20px bg-red-500 h-[calc(100vh-20px)]"></div>
+  <div id="container" class="w-sideBar bg-black h-[calc(100vh-35px)]"></div>
 </template>
 
 <script lang="ts">

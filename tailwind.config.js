@@ -1,16 +1,20 @@
 /** @type {import('tailwindcss').Config} */
+
+const upperFrameHeight = "35px";
+const sideBarWidth = "30px";
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       height: {
-        "20px": "20px",
+        upperFrame: upperFrameHeight,
       },
       width: {
-        "20px": "20px",
+        sideBar: sideBarWidth,
       },
       spacing: {
-        "20px": "20px",
+        upperFrame: "35px",
+        sideBar: "30px",
       },
       backgroundImage: {
         playgroundImage: "url('./assets/images/background_image.png')",
