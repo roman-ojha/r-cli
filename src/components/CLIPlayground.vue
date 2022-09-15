@@ -15,7 +15,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-#container {
+/* #container {
   width: calc(100% - 20px);
   height: calc(100vh - 20px);
   position: absolute;
@@ -36,5 +36,5 @@ export default defineComponent({
   background-position: 50% 50%;
   background-size: cover;
   filter: saturate(0.1) contrast(1.4) brightness(0.5);
-}
+} */
 </style>

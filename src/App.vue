@@ -21,12 +21,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-body {
-  margin: 0px;
-  padding: 0px;
-  height: 100vh;
-  background-color: black;
-  // overflow: hidden;
-}
-</style>
+<style src="./style.css" />

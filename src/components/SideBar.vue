@@ -10,9 +10,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-#container {
+/* #container {
   width: 20px;
   height: calc(100vh - 20px);
   background-color: white;
-}
+} */
 </style>
