@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import SideBar from "./components/SideBar.vue";
-import UpperFrame from "./components/UpperFrame.vue";
+import UpperFrame from "./components/UpperFrame/Index.vue";
 import CLIPlayground from "./components/CLIPlayground.vue";
 
 export default {

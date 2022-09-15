@@ -25,6 +25,12 @@ module.exports = {
       contrast: {
         140: "1.4",
       },
+      backgroundColor: {
+        "282828-900": "#3f3f3fde",
+      },
+    },
+    fontFamily: {
+      inter: "Inter",
     },
   },
   plugins: [],
