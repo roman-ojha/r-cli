@@ -1,20 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 
-const upperFrameHeight = "35px";
-const sideBarWidth = "30px";
+const upperFrameTBorder = 8;
+const upperFrameHeight = 35 + upperFrameTBorder;
+const sideBarWidth = 40;
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       height: {
-        upperFrame: upperFrameHeight,
+        upperFrame: `${upperFrameHeight}px`,
+        "side-bar": `calc(100vh - ${upperFrameHeight}px)`,
+        "cli-playground": `calc(100vh - ${upperFrameHeight}px)`,
       },
       width: {
-        sideBar: sideBarWidth,
+        "side-bar": `${sideBarWidth}px`,
+        "cli-playground": `calc(100% - ${sideBarWidth}px)`,
       },
       spacing: {
-        upperFrame: "35px",
-        sideBar: "30px",
+        upperFrame: upperFrameHeight,
+        sideBar: sideBarWidth,
       },
       backgroundImage: {
         playgroundImage: "url('./assets/images/background_image.png')",

@@ -2,7 +2,7 @@
   <div
     id="container"
     style="-webkit-app-region: drag"
-    class="w-full h-upperFrame bg-black flex justify-between items-center"
+    class="w-full h-upperFrame bg-black flex justify-between items-center border-solid border-black border-t-8 border-l-8"
   >
     <CurrentTerminalTab />
     <div
