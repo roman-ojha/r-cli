@@ -16,6 +16,9 @@
     "app:build": "tsc && yarn build:for:electron && yarn electron:builder"
   },
   "dependencies": {
+    "electron-devtools-installer": "^3.2.0",
+    "electron-reloader": "^1.2.3",
+    "electron-window-state": "^5.0.3",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5",
     "vuex": "^4.0.2"
@@ -33,9 +36,6 @@
     "cross-env": "^7.0.3",
     "electron": "^20.1.4",
     "electron-builder": "^23.3.3",
-    "electron-devtools-installer": "^3.1.0",
-    "electron-reloader": "^1.2.3",
-    "electron-window-state": "^5.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

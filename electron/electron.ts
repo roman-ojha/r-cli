@@ -44,7 +44,7 @@ async function createWindow() {
   win.loadURL(
     isDev
       ? "http://localhost:5173"
-      : `file://${path.join(__dirname, "../../../../dist/index.html")}`
+      : `file://${path.join(__dirname, "../../dist/index.html")}`
   );
   if (isDev) {
     // win.webContents.openDevTools({ mode: "detach" });
