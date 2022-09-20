@@ -1,3 +1,7 @@
-import electron from "electron";
-// All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
+import { contextBridge, ipcRenderer } from "electron";
+
+contextBridge.exposeInMainWorld("electronAPI", {
+  minimizeWindow: () => ipcRenderer.send("minimize-window"),
+  toggleFullScreen: () => ipcRenderer.send("toggle-fullscreen"),
+  closeWindows: () => ipcRenderer.send("close-windows"),
+});
