@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 
 # custom
-electron-dist
-release
+electron_dist
