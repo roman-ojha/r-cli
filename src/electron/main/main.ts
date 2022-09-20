@@ -1,11 +1,19 @@
 "use strict";
 import { app, protocol, BrowserWindow, ipcMain } from "electron";
-import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
 import windowsStateKeeper from "electron-window-state";
 import path from "path";
+import electronReloader from "electron-reloader";
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+const isDev = process.env.IS_DEV == "true" ? true : false;
+if (isDev) {
+  try {
+    // require("electron-reloader")(module);
+    electronReloader(module);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } },
@@ -21,11 +29,10 @@ async function createWindow() {
     height: mainWindowsState.height,
     x: mainWindowsState.x,
     y: mainWindowsState.y,
-    title: "RCLI",
+    title: "R-CLI",
     webPreferences: {
-      // nodeIntegration: process.env
-      //   .ELECTRON_NODE_INTEGRATION as unknown as boolean,
-      nodeIntegration: true,
+      nodeIntegration: process.env
+        .ELECTRON_NODE_INTEGRATION as unknown as boolean,
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
       preload: path.join(__dirname, "../preload/preload.js"),
     },
@@ -34,12 +41,13 @@ async function createWindow() {
   });
 
   mainWindowsState.manage(win);
-  if (process.env.WEBPACK_DEV_SERVER_URL) {
-    await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL as string);
-    // await win.webContents.openDevTools();
-  } else {
-    createProtocol("app");
-    win.loadURL("app://./index.html");
+  win.loadURL(
+    isDev
+      ? "http://localhost:5173"
+      : `file://${path.join(__dirname, "../../../../dist/index.html")}`
+  );
+  if (isDev) {
+    win.webContents.openDevTools({ mode: "detach" });
   }
   ipcMain.on("minimize-window", function () {
     win.minimize();
@@ -67,7 +75,7 @@ app.on("activate", () => {
 });
 
 app.on("ready", async () => {
-  if (isDevelopment && !process.env.IS_TEST) {
+  if (isDev && !process.env.IS_TEST) {
     try {
       await installExtension(VUEJS3_DEVTOOLS);
     } catch (e) {
@@ -77,7 +85,7 @@ app.on("ready", async () => {
   createWindow();
 });
 
-if (isDevelopment) {
+if (isDev) {
   if (process.platform === "win32") {
     process.on("message", (data) => {
       if (data === "graceful-exit") {

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
+    "module": "CommonJS",
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
@@ -16,7 +16,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "outDir": "./electron-dist"
   },
   "include": [
     "src/**/*.ts",
@@ -24,7 +25,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "./src/types"
+    "./src/types",
+    "electron/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
