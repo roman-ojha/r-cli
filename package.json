@@ -4,11 +4,18 @@
   "private": true,
   "main": "./src/electron/main/main.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
+    "electron": "wait-on tcp:5173 && cross-env IS_DEV=true electron .",
+    "electron:pack": "electron-builder --dir",
+    "electron:dev": "tsc && concurrently \"cross-env BROWSER=none yarn dev\" \"yarn electron\" \"tsc -w\"",
+    "electron:builder": "electron-builder",
+    "build:for:electron": "vue-tsc --noEmit && cross-env ELECTRON=true vite build",
+    "app:build": "tsc && yarn build:for:electron && yarn electron:builder",
     "electron:build": "vue-cli-service electron:build",
     "copy:assets": "copyfiles -u 1 ./src/assets/**/* ./dist_electron",
     "electron:serve": "yarn copy:assets && vue-cli-service electron:serve",
@@ -66,5 +73,25 @@
     "vue-cli-plugin-electron-builder": "~2.1.1",
     "vue-tsc": "^0.40.13",
     "wait-on": "^6.0.1"
+  },
+  "build": {
+    "appId": "com.roman.r-cli",
+    "productName": "R-CLI",
+    "copyright": "Copyright © 2022 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "dist/**/*",
+      "electron-dist/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "release/${version}"
+    }
   }
 }
