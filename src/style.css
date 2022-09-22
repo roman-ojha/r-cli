@@ -9,3 +9,7 @@ body {
   padding: 0px;
   height: 100vh;
 }
+
+::selection {
+  background-color: transparent;
+}

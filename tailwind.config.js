@@ -30,14 +30,15 @@ module.exports = {
         140: "1.4",
       },
       backgroundColor: {
-        "primary-700": "#3f3f3fde",
-        "primary-200": "#3f3f3f8a",
+        "gray-black-700": "#3f3f3fde",
+        "gray-black-200": "#3f3f3f8a",
         "close-button": "#FF5252",
         "max-min-win-button": "#2CEC56",
         "minimize-button": "#E6E950",
         "close-button-hover": "#ff9191",
         "max-min-win-button-hover": "#afffc0",
         "minimize-button-hover": "#feffb1",
+        primary: "#809DE5",
       },
       margin: {
         "10vw": "5vw",
