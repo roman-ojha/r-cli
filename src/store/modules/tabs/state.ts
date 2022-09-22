@@ -6,9 +6,11 @@ const tabState: TabsState = {
   tabs: [
     {
       name: "R-CLI 1",
+      location: "cloud",
     },
     {
       name: "R-CLI 2",
+      location: "cloud",
     },
   ],
 };

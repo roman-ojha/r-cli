@@ -8,6 +8,7 @@ import {
 
 export interface Tab {
   name: string;
+  location: "cloud" | "local";
 }
 
 export interface TabsState {
@@ -19,7 +20,8 @@ export interface TabsState {
 export interface Getters {
   activeTab(state: TabsState): number;
   numberOfTab(state: TabsState): number;
-  getTabTitle(state: TabsState): Tab["name"];
+  getCurrentTabTitle(state: TabsState): Tab["name"];
+  getCurrentTabLocation(state: TabsState): Tab["location"];
 }
 
 export enum TabsActionType {}

@@ -5,7 +5,8 @@
   >
     <div class="flex justify-start items-center font-inter text-xs">
       <img :src="appIcon" class="w-4 m-2" />
-      <h1 class="text-white">{{ title }}</h1>
+      <h1 class="text-white font-inter">{{ tabTitle }}</h1>
+      <h1 class="text-white ml-2 font-inter">( {{ tabLocation }} )</h1>
     </div>
     <div
       class="w-3 h-3 bg-close-button mr-3 rounded-full cursor-pointer hover:bg-close-button-hover duration-100"
@@ -28,8 +29,11 @@ export default defineComponent({
     };
   },
   computed: {
-    title() {
-      return store.getters["getTabTitle"];
+    tabTitle() {
+      return store.getters["getCurrentTabTitle"];
+    },
+    tabLocation() {
+      return store.getters["getCurrentTabLocation"];
     },
   },
 });

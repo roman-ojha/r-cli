@@ -14,7 +14,9 @@
       icon="carbon:add-filled"
       :color="plusIconColor"
       class="w-6 h-6 mt-2 cursor-pointer"
-      @click="createNewTab({ name: `R-CLI ${numberOfTabs + 1}` })"
+      @click="
+        createNewTab({ name: `R-CLI ${numberOfTabs + 1}`, location: 'cloud' })
+      "
     />
   </div>
 </template>
@@ -44,8 +46,6 @@ export default defineComponent({
   data() {
     return {
       plusIconColor: "#809DE5",
-      // selectedTab: 1,
-      // numberOfTab: 5,
     };
   },
   methods: {
