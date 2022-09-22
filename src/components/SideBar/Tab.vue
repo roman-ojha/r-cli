@@ -2,13 +2,13 @@
   <div
     :class="[
       'p-2 m-1',
-      active ? 'bg-gray-black-700' : '',
+      id == selectedTab ? 'bg-gray-black-700' : '',
       'rounded-tr-2xl',
       'rounded-tl-md',
-      active ? 'shadow-tab' : '',
+      id == selectedTab ? 'shadow-tab' : '',
       'cursor-pointer',
       'duration-150',
-      active ? '' : 'hover:bg-gray-black-200',
+      id == selectedTab ? '' : 'hover:bg-gray-black-200',
     ]"
   >
     <img :src="appIcon" class="w-5" />
@@ -31,8 +31,12 @@ export default defineComponent({
     };
   },
   props: {
-    active: {
-      type: Boolean,
+    id: {
+      type: Number,
+      required: true,
+    },
+    selectedTab: {
+      type: Number,
       required: true,
     },
   },
