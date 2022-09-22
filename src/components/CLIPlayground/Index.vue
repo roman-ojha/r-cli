@@ -9,11 +9,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({
   name: "CLIPlayground",
-  data: function () {
-    return {};
-  },
 });
 </script>
 

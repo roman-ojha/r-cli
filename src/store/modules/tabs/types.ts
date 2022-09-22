@@ -16,14 +16,10 @@ export interface TabsState {
   tabs: Tab[];
 }
 
-export enum TabsGettersType {
-  ACTIVE_TAB = "ACTIVE_TAB",
-  NUMBER_OF_TAB = "NUMBER_OF_TAB",
-}
-
 export interface Getters {
   activeTab(state: TabsState): number;
   numberOfTab(state: TabsState): number;
+  getTabTitle(state: TabsState): Tab["name"];
 }
 
 export enum TabsActionType {
