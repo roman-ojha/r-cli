@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full w-60 bg-282828-900 rounded-tr-3xl rounded-tl-xl flex justify-between items-center"
+    class="h-full w-60 bg-primary-700 rounded-tr-3xl rounded-tl-xl flex justify-between items-center"
     style="-webkit-app-region: no-drag"
   >
     <div class="flex justify-start items-center font-inter text-xs">

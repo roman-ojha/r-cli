@@ -2,7 +2,7 @@
 
 const upperFrameTBorder = 8;
 const upperFrameHeight = 35 + upperFrameTBorder;
-const sideBarWidth = 40;
+const sideBarWidth = 50;
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
@@ -30,7 +30,7 @@ module.exports = {
         140: "1.4",
       },
       backgroundColor: {
-        "282828-900": "#3f3f3fde",
+        "primary-700": "#3f3f3fde",
         "close-button": "#FF5252",
         "max-min-win-button": "#2CEC56",
         "minimize-button": "#E6E950",
@@ -40,6 +40,10 @@ module.exports = {
       },
       margin: {
         "10vw": "5vw",
+      },
+      color: {},
+      boxShadow: {
+        tab: "1px 3px 0px #535353ff",
       },
     },
     fontFamily: {

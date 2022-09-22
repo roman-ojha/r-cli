@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import SideBar from "./components/SideBar.vue";
+import SideBar from "./components/SideBar/Index.vue";
 import UpperFrame from "./components/UpperFrame/Index.vue";
 import CLIPlayground from "./components/CLIPlayground.vue";
 
