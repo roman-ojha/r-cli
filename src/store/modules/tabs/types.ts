@@ -22,17 +22,16 @@ export interface Getters {
   getTabTitle(state: TabsState): Tab["name"];
 }
 
-export enum TabsActionType {
-  CHANGE_TAB = "CHANGE_TAB",
-  OPEN_NEW_TAB = "OPEN_NEW_TAB",
-}
+export enum TabsActionType {}
+// CHANGE_TAB = "CHANGE_TAB",
+// OPEN_NEW_TAB = "OPEN_NEW_TAB",
 
 export interface Actions {
-  [TabsActionType.CHANGE_TAB](
-    { commit }: AugmentedActionContext,
-    todoNo: number
-  ): void;
-  [TabsActionType.OPEN_NEW_TAB]({ commit }: AugmentedActionContext): void;
+  // [TabsActionType.CHANGE_TAB](
+  //   { commit }: AugmentedActionContext,
+  //   todoNo: number
+  // ): void;
+  // [TabsActionType.OPEN_NEW_TAB]({ commit }: AugmentedActionContext): void;
 }
 
 type AugmentedActionContext = {
