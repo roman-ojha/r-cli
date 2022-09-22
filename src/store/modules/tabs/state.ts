@@ -7,6 +7,9 @@ const tabState: TabsState = {
     {
       name: "R-CLI 1",
     },
+    {
+      name: "R-CLI 2",
+    },
   ],
 };
 

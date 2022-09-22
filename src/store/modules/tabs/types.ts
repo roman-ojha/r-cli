@@ -49,7 +49,7 @@ export enum TabsMutationType {
 
 export type Mutations<S = TabsState> = {
   [TabsMutationType.CHANGE_TAB](state: S, tabNo: number): void;
-  [TabsMutationType.OPEN_NEW_TAB](state: S): void;
+  [TabsMutationType.OPEN_NEW_TAB](state: S, newTabData: Tab): void;
 };
 
 export type TabsStore<S = TabsState> = Omit<

@@ -25,8 +25,12 @@ export default defineComponent({
   data() {
     return {
       appIcon,
-      title: store.getters["getTabTitle"],
     };
+  },
+  computed: {
+    title() {
+      return store.getters["getTabTitle"];
+    },
   },
 });
 </script>
