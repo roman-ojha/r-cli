@@ -32,18 +32,17 @@ export enum TabsActionType {
 }
 
 export interface Actions {
-  [TabsActionType.CHANGE_TAB]({
-    commit,
-  }: AugmentedActionContext): Promise<void>;
-  [TabsActionType.OPEN_NEW_TAB]({
-    commit,
-  }: AugmentedActionContext): Promise<void>;
+  [TabsActionType.CHANGE_TAB](
+    { commit }: AugmentedActionContext,
+    todoNo: number
+  ): void;
+  [TabsActionType.OPEN_NEW_TAB]({ commit }: AugmentedActionContext): void;
 }
 
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(
     key: K,
-    payload: Parameters<Mutations[K]>[1]
+    payload?: Parameters<Mutations[K]>[1]
   ): ReturnType<Mutations[K]>;
 } & Omit<ActionContext<TabsState, RootState>, "commit">;
 
@@ -63,7 +62,7 @@ export type TabsStore<S = TabsState> = Omit<
 > & {
   commit<K extends keyof Mutations, P extends Parameters<Mutations[K]>[1]>(
     key: K,
-    payload: P,
+    payload?: P,
     options?: CommitOptions
   ): ReturnType<Mutations[K]>;
 } & {
