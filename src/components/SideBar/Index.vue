@@ -3,7 +3,13 @@
     id="container"
     class="w-side-bar bg-black h-side-bar flex flex-col justify-start items-center py-2"
   >
-    <Tab />
+    <Tab :active="true" />
+    <Tab :active="false" />
+    <Tab :active="false" />
+    <Tab :active="false" />
+    <Tab :active="false" />
+    <Tab :active="false" />
+    Tab />
   </div>
 </template>
 

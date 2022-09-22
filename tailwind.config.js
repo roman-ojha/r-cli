@@ -31,6 +31,7 @@ module.exports = {
       },
       backgroundColor: {
         "primary-700": "#3f3f3fde",
+        "primary-200": "#3f3f3f8a",
         "close-button": "#FF5252",
         "max-min-win-button": "#2CEC56",
         "minimize-button": "#E6E950",
