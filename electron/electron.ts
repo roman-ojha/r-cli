@@ -1,6 +1,5 @@
 "use strict";
 import { app, protocol, BrowserWindow, ipcMain } from "electron";
-import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
 import windowsStateKeeper from "electron-window-state";
 import path from "path";
 import electronReloader from "electron-reloader";
@@ -8,7 +7,6 @@ import electronReloader from "electron-reloader";
 const isDev = process.env.IS_DEV == "true" ? true : false;
 if (isDev) {
   try {
-    // require("electron-reloader")(module);
     electronReloader(module);
   } catch (err) {
     console.log(err);
@@ -18,6 +16,8 @@ if (isDev) {
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } },
 ]);
+
+console.log(path.join(__dirname, "../../assets"));
 
 async function createWindow() {
   const mainWindowsState = windowsStateKeeper({
@@ -36,7 +36,7 @@ async function createWindow() {
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
       preload: path.join(__dirname, "./preload.js"),
     },
-    icon: __dirname + "/assets/ico/appicon.ico",
+    icon: path.join(__dirname, "../../assets/appicon.ico"),
     frame: false,
   });
 
@@ -48,7 +48,7 @@ async function createWindow() {
   );
   if (isDev) {
     // win.webContents.openDevTools({ mode: "detach" });
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
   }
   ipcMain.on("minimize-window", function () {
     win.minimize();
@@ -71,31 +71,15 @@ app.on("window-all-closed", () => {
   }
 });
 
-app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow();
-});
-
-app.on("ready", async () => {
-  if (isDev && !process.env.IS_TEST) {
-    try {
-      await installExtension(VUEJS3_DEVTOOLS);
-    } catch (e) {
-      // console.error("Vue Devtools failed to install:", e.toString());
-    }
-  }
+app.whenReady().then(() => {
   createWindow();
+  app.on("activate", function () {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
 });
 
-if (isDev) {
-  if (process.platform === "win32") {
-    process.on("message", (data) => {
-      if (data === "graceful-exit") {
-        app.quit();
-      }
-    });
-  } else {
-    process.on("SIGTERM", () => {
-      app.quit();
-    });
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
   }
-}
+});
