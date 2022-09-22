@@ -9,7 +9,7 @@
 <script lang="ts">
 import SideBar from "./components/SideBar/Index.vue";
 import UpperFrame from "./components/UpperFrame/Index.vue";
-import CLIPlayground from "./components/CLIPlayground.vue";
+import CLIPlayground from "./components/CLIPlayground/Index.vue";
 
 export default {
   name: "App",
