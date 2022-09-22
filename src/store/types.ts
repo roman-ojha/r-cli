@@ -1,3 +1,7 @@
-export type RootState = {};
+import { TabsState, TabsStore } from "./modules/tabs/types";
 
-export type Store = null;
+export type RootState = {
+  tabs: TabsState;
+};
+
+export type Store = TabsStore<Pick<RootState, "tabs">>;

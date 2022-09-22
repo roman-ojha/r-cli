@@ -11,3 +11,5 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
     }
   },
 };
+
+export default tabsMutation;
