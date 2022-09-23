@@ -22,6 +22,7 @@ export interface Getters {
   numberOfTab(state: TabsState): number;
   getCurrentTabTitle(state: TabsState): Tab["name"];
   getCurrentTabInfo(state: TabsState): Tab;
+  getTabInfo(state: TabsState): Tab[];
 }
 
 export enum TabsActionType {}

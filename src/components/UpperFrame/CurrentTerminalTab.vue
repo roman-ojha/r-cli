@@ -9,7 +9,6 @@
     </div>
     <button
       class="w-3 h-3 bg-close-button mr-3 rounded-full cursor-pointer hover:bg-close-button-hover duration-100"
-      @click="closeCurrentTab"
     ></button>
   </div>
 </template>
@@ -18,7 +17,7 @@
 import { defineComponent } from "vue";
 import appIcon from "../../assets/images/appicon.png";
 import { useStore } from "../../store";
-import { TabsMutationType } from "../../store/modules/tabs/types";
+// import { TabsMutationType } from "../../store/modules/tabs/types";
 
 const store = useStore();
 
@@ -30,9 +29,9 @@ export default defineComponent({
     };
   },
   methods: {
-    closeCurrentTab() {
-      store.commit(TabsMutationType.CLOSE_CURRENT_TAB);
-    },
+    // closeCurrentTab() {
+    //   store.commit(TabsMutationType.CLOSE_CURRENT_TAB);
+    // },
   },
   computed: {
     tabTitle() {

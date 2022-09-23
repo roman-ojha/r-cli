@@ -18,17 +18,16 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
     state.tabs = state.tabs.filter(
       (tab, index) => index != state.activeTab - 1
     );
-    state.numberOfTabs--;
-    if (state.activeTab === 1) {
-      state.activeTab++;
-      if (state.numberOfTabs === 1) {
-        // close window
-      }
+    if (state.activeTab === 1 && state.numberOfTabs === 1) {
+      window.electronAPI.closeWindows();
+    } else if (state.activeTab === 1 && state.numberOfTabs === 2) {
+      state.activeTab = 1;
     } else if (state.activeTab === state.numberOfTabs) {
       state.activeTab--;
     } else {
       state.activeTab--;
     }
+    state.numberOfTabs--;
   },
 };
 
