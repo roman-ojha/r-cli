@@ -24,18 +24,24 @@ export default defineComponent({
     CLIPlayground,
   },
   methods: {
-    createNewTab(event: KeyboardEvent) {
+    handleKeyPressEvent(event: KeyboardEvent) {
+      console.log(event.keyCode);
       if (event.keyCode === 14) {
+        // create new Tab Tab
         // ctrl + n
         store.commit(TabsMutationType.OPEN_NEW_TAB);
+      } else if (event.keyCode === 23) {
+        // Close current Tab
+        // ctrl + shift + w
+        store.commit(TabsMutationType.CLOSE_CURRENT_TAB);
       }
     },
   },
   created() {
-    window.addEventListener("keypress", this.createNewTab);
+    window.addEventListener("keypress", this.handleKeyPressEvent);
   },
   unmounted() {
-    window.removeEventListener("keypress", this.createNewTab);
+    window.removeEventListener("keypress", this.handleKeyPressEvent);
   },
 });
 </script>

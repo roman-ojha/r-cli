@@ -49,7 +49,6 @@ export default defineComponent({
       return store.getters["getCurrentTabInfo"];
     },
     tabInfo() {
-      // console.log("TabInfo", store.getters["getTabInfo"]);
       return store.getters["getTabInfo"];
     },
   },
@@ -60,7 +59,6 @@ export default defineComponent({
   },
   methods: {
     changeTab(tabId: number) {
-      // console.log("changeTab: ", tabId);
       store.commit(TabsMutationType.CHANGE_TAB, tabId);
     },
     createNewTab() {
