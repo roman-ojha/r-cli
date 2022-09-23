@@ -7,8 +7,7 @@ const tabsGetters: GetterTree<TabsState, RootState> & Getters = {
   numberOfTab: (state: TabsState) => state.numberOfTabs,
   getCurrentTabTitle: (state: TabsState) =>
     state.tabs[state.activeTab - 1].name,
-  getCurrentTabLocation: (state: TabsState) =>
-    state.tabs[state.activeTab - 1].location,
+  getCurrentTabInfo: (state: TabsState) => state.tabs[state.activeTab],
 };
 
 export default tabsGetters;

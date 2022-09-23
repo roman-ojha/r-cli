@@ -10,6 +10,7 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
       state.numberOfTabs++;
       state.tabs.push({
         name: `R-CLI ${state.numberOfTabs}`,
+        id: state.numberOfTabs,
       });
     }
   },

@@ -40,6 +40,9 @@ export default defineComponent({
     numberOfTabs() {
       return store.getters["numberOfTab"];
     },
+    currentTabInfo() {
+      return store.getters["getCurrentTabInfo"];
+    },
   },
   data() {
     return {

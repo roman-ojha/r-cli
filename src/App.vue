@@ -12,33 +12,32 @@ import UpperFrame from "./components/UpperFrame/Index.vue";
 import CLIPlayground from "./components/CLIPlayground/Index.vue";
 import { useStore } from "./store";
 import { TabsMutationType } from "./store/modules/tabs/types";
+import { defineComponent } from "@vue/runtime-core";
 
 const store = useStore();
 
-export default {
+export default defineComponent({
   name: "App",
   components: {
     UpperFrame,
     SideBar,
     CLIPlayground,
   },
-  created() {
-    console.log("mounted");
-    window.addEventListener("keypress", (event) => {
-      console.log("added");
+  methods: {
+    createNewTab(event: KeyboardEvent) {
       if (event.keyCode === 14) {
         // ctrl + n
         store.commit(TabsMutationType.OPEN_NEW_TAB);
       }
-    });
+    },
+  },
+  created() {
+    window.addEventListener("keypress", this.createNewTab);
   },
   unmounted() {
-    console.log("unmounted");
-    window.removeEventListener("keypress", (event) => {
-      console.log("removed");
-    });
+    window.removeEventListener("keypress", this.createNewTab);
   },
-};
+});
 </script>
 
 <style src="./style.css" />
