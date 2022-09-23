@@ -4,12 +4,14 @@
     class="w-cli-playground h-cli-playground absolute top-upperFrame left-sideBar"
   >
     <h1 class="text-white">R-CLI {{ tabNo }}</h1>
-    <input type="text" />
+    <!-- <input type="text" /> -->
+    <!-- <audio controls :src="testAudio"></audio> -->
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({
   name: "TabVue",
   props: {

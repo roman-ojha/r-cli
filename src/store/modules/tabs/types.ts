@@ -8,7 +8,7 @@ import {
 
 export interface Tab {
   name: string;
-  location: "cloud" | "local";
+  // location: "cloud" | "local";
 }
 
 export interface TabsState {
@@ -21,7 +21,6 @@ export interface Getters {
   activeTab(state: TabsState): number;
   numberOfTab(state: TabsState): number;
   getCurrentTabTitle(state: TabsState): Tab["name"];
-  getCurrentTabLocation(state: TabsState): Tab["location"];
 }
 
 export enum TabsActionType {}
@@ -50,7 +49,7 @@ export enum TabsMutationType {
 
 export type Mutations<S = TabsState> = {
   [TabsMutationType.CHANGE_TAB](state: S, tabNo: number): void;
-  [TabsMutationType.OPEN_NEW_TAB](state: S, newTabData: Tab): void;
+  [TabsMutationType.OPEN_NEW_TAB](state: S): void;
 };
 
 export type TabsStore<S = TabsState> = Omit<

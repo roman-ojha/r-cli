@@ -9,15 +9,13 @@ if (isDev) {
   try {
     electronReloader(module);
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 }
 
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } },
 ]);
-
-console.log(path.join(__dirname, "../../assets"));
 
 async function createWindow() {
   const mainWindowsState = windowsStateKeeper({
@@ -47,8 +45,8 @@ async function createWindow() {
       : `file://${path.join(__dirname, "../../dist/index.html")}`
   );
   if (isDev) {
-    // win.webContents.openDevTools({ mode: "detach" });
-    win.webContents.openDevTools();
+    win.webContents.openDevTools({ mode: "detach" });
+    // win.webContents.openDevTools();
   }
   ipcMain.on("minimize-window", function () {
     win.minimize();

@@ -14,9 +14,7 @@
       icon="carbon:add-filled"
       :color="plusIconColor"
       class="w-6 h-6 mt-2 cursor-pointer"
-      @click="
-        createNewTab({ name: `R-CLI ${numberOfTabs + 1}`, location: 'cloud' })
-      "
+      @click="createNewTab()"
     />
   </div>
 </template>
@@ -52,8 +50,8 @@ export default defineComponent({
     changeTab(tabNo: number) {
       store.commit(TabsMutationType.CHANGE_TAB, tabNo);
     },
-    createNewTab(newTabData: TabType) {
-      store.commit(TabsMutationType.OPEN_NEW_TAB, newTabData);
+    createNewTab() {
+      store.commit(TabsMutationType.OPEN_NEW_TAB);
     },
   },
   components: {
