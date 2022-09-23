@@ -11,8 +11,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "../../../store";
-import { Tab as TabTypes } from "../../../store/modules/tabs/types";
-
 const store = useStore();
 
 export default defineComponent({

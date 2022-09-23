@@ -3,7 +3,10 @@ import { TabsState, Mutations, TabsMutationType, Tab } from "./types";
 
 const tabsMutation: MutationTree<TabsState> & Mutations = {
   [TabsMutationType.CHANGE_TAB]: function (state: TabsState, tabId: number) {
-    return (state.activeTabId = tabId);
+    state.activeTabId = tabId;
+    state.activeTabIndex = state.tabs.findIndex((tab) => tab.id === tabId);
+    console.log(state.activeTabIndex);
+    // console.log(state.activeTabId);
   },
   [TabsMutationType.OPEN_NEW_TAB]: function (state: TabsState) {
     if (state.tabs.length < 10) {
@@ -14,18 +17,14 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
     }
   },
   [TabsMutationType.CLOSE_CURRENT_TAB]: function (state: TabsState) {
-    state.tabs = state.tabs.filter(
-      (tab, index) => index != state.activeTabId - 1
-    );
-    if (state.activeTabId === 1 && state.tabs.length === 1) {
+    state.tabs = state.tabs.filter((tab) => tab.id != state.activeTabId);
+    console.log(state.tabs);
+    if (state.tabs.length === 0) {
       window.electronAPI.closeWindows();
-    } else if (state.activeTabId === 1 && state.tabs.length === 2) {
-      state.activeTabId = 1;
-    } else if (state.activeTabId === state.tabs.length) {
-      state.activeTabId--;
     } else {
-      state.activeTabId--;
+      state.activeTabId = state.tabs[0].id;
     }
+    // console.log(state.activeTabId);
   },
 };
 

@@ -2,6 +2,7 @@ import { TabsState } from "./types";
 
 const tabState: TabsState = {
   activeTabId: 1,
+  activeTabIndex: 0,
   tabs: [
     {
       name: "R-CLI 1",

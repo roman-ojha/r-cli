@@ -13,6 +13,7 @@ export interface Tab {
 
 export interface TabsState {
   activeTabId: number;
+  activeTabIndex: number;
   tabs: Tab[];
 }
 
