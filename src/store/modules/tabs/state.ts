@@ -1,8 +1,7 @@
 import { TabsState } from "./types";
 
 const tabState: TabsState = {
-  activeTab: 1,
-  numberOfTabs: 2,
+  activeTabId: 1,
   tabs: [
     {
       name: "R-CLI 1",

@@ -3,12 +3,12 @@ import { RootState } from "../../types";
 import { TabsState, Getters } from "./types";
 
 const tabsGetters: GetterTree<TabsState, RootState> & Getters = {
-  activeTab: (state: TabsState) => state.activeTab,
-  numberOfTab: (state: TabsState) => state.numberOfTabs,
+  activeTabId: (state: TabsState) => state.activeTabId,
+  numberOfTab: (state: TabsState) => state.tabs.length,
   getCurrentTabTitle: (state: TabsState) => {
-    return state.tabs[state.activeTab - 1].name;
+    return state.tabs[state.activeTabId - 1].name;
   },
-  getCurrentTabInfo: (state: TabsState) => state.tabs[state.activeTab - 1],
+  getCurrentTabInfo: (state: TabsState) => state.tabs[state.activeTabId - 1],
   getTabInfo: (state: TabsState) => state.tabs,
 };
 

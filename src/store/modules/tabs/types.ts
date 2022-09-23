@@ -12,13 +12,12 @@ export interface Tab {
 }
 
 export interface TabsState {
-  numberOfTabs: number;
-  activeTab: number;
+  activeTabId: number;
   tabs: Tab[];
 }
 
 export interface Getters {
-  activeTab(state: TabsState): number;
+  activeTabId(state: TabsState): number;
   numberOfTab(state: TabsState): number;
   getCurrentTabTitle(state: TabsState): Tab["name"];
   getCurrentTabInfo(state: TabsState): Tab;
@@ -51,7 +50,7 @@ export enum TabsMutationType {
 }
 
 export type Mutations<S = TabsState> = {
-  [TabsMutationType.CHANGE_TAB](state: S, tabNo: number): void;
+  [TabsMutationType.CHANGE_TAB](state: S, tabId: number): void;
   [TabsMutationType.OPEN_NEW_TAB](state: S): void;
   [TabsMutationType.CLOSE_CURRENT_TAB](state: S): void;
 };

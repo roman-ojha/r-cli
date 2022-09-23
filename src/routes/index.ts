@@ -14,3 +14,10 @@ export const routes: RouteRecordRaw[] = tabInfo.map(
       component: TabVue,
     }
 );
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+export default router;

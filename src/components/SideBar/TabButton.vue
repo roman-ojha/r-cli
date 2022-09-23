@@ -2,13 +2,13 @@
   <div
     :class="[
       'p-2 m-1',
-      id == selectedTab ? 'bg-gray-black-700' : '',
+      id == activeTabId ? 'bg-gray-black-700' : '',
       'rounded-tr-2xl',
       'rounded-tl-md',
-      id == selectedTab ? 'shadow-tab' : '',
+      id == activeTabId ? 'shadow-tab' : '',
       'cursor-pointer',
       'duration-150',
-      id == selectedTab ? '' : 'hover:bg-gray-black-200',
+      id == activeTabId ? '' : 'hover:bg-gray-black-200',
     ]"
   >
     <img :src="appIcon" class="w-5" />
@@ -18,10 +18,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import appIcon from "../../assets/images/appicon.png";
-
-interface Props {
-  active: boolean;
-}
 
 export default defineComponent({
   name: "TabVue",
@@ -35,7 +31,7 @@ export default defineComponent({
       type: Number,
       required: true,
     },
-    selectedTab: {
+    activeTabId: {
       type: Number,
       required: true,
     },

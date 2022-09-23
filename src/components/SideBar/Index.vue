@@ -4,12 +4,20 @@
     class="w-side-bar bg-black h-side-bar flex flex-col justify-start items-center py-2"
   >
     <TabButton
-      v-for="i in numberOfTabs"
-      :id="i"
-      :selectedTab="selectedTab"
-      :key="i"
-      @click="changeTab(i)"
+      v-for="tab in tabInfo"
+      :id="tab.id"
+      :activeTabId="activeTabId"
+      :key="tab.id"
+      @click="changeTab(tab.id)"
     />
+    <!-- <router-link
+      v-for="tab in tabInfo"
+      :key="tab.id"
+      :to="`/${tab.id}`"
+      @click="changeTab(tab.id)"
+    >
+      <TabButton :id="tab.id" :activeTabId="activeTabId" />
+    </router-link> -->
     <Icon
       icon="carbon:add-filled"
       :color="plusIconColor"
@@ -31,14 +39,17 @@ const store = useStore();
 export default defineComponent({
   name: "SideBar",
   computed: {
-    selectedTab() {
-      return store.getters["activeTab"];
+    activeTabId() {
+      return store.getters["activeTabId"];
     },
     numberOfTabs() {
       return store.getters["numberOfTab"];
     },
     currentTabInfo() {
       return store.getters["getCurrentTabInfo"];
+    },
+    tabInfo() {
+      return store.getters["getTabInfo"];
     },
   },
   data() {
@@ -47,8 +58,8 @@ export default defineComponent({
     };
   },
   methods: {
-    changeTab(tabNo: number) {
-      store.commit(TabsMutationType.CHANGE_TAB, tabNo);
+    changeTab(tabId: number) {
+      store.commit(TabsMutationType.CHANGE_TAB, tabId);
     },
     createNewTab() {
       store.commit(TabsMutationType.OPEN_NEW_TAB);
