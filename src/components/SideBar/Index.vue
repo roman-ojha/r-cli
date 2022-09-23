@@ -3,7 +3,7 @@
     id="container"
     class="w-side-bar bg-black h-side-bar flex flex-col justify-start items-center py-2"
   >
-    <Tab
+    <TabButton
       v-for="i in numberOfTabs"
       :id="i"
       :selectedTab="selectedTab"
@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from "vue";
-import Tab from "./Tab.vue";
+import { defineComponent } from "vue";
+import TabButton from "./TabButton.vue";
 import { Icon } from "@iconify/vue";
 import { useStore } from "../../store";
 import {
@@ -57,8 +57,8 @@ export default defineComponent({
     },
   },
   components: {
-    Tab,
     Icon,
+    TabButton,
   },
 });
 </script>
