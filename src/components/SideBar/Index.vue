@@ -24,10 +24,7 @@ import { defineComponent } from "vue";
 import TabButton from "./TabButton.vue";
 import { Icon } from "@iconify/vue";
 import { useStore } from "../../store";
-import {
-  TabsMutationType,
-  Tab as TabType,
-} from "../../store/modules/tabs/types";
+import { TabsMutationType } from "../../store/modules/tabs/types";
 
 const store = useStore();
 

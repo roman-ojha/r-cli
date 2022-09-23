@@ -7,9 +7,10 @@
       <img :src="appIcon" class="w-4 m-2" />
       <h1 class="text-white font-inter">{{ tabTitle }}</h1>
     </div>
-    <div
+    <button
       class="w-3 h-3 bg-close-button mr-3 rounded-full cursor-pointer hover:bg-close-button-hover duration-100"
-    ></div>
+      @click="closeCurrentTab"
+    ></button>
   </div>
 </template>
 
@@ -17,6 +18,7 @@
 import { defineComponent } from "vue";
 import appIcon from "../../assets/images/appicon.png";
 import { useStore } from "../../store";
+import { TabsMutationType } from "../../store/modules/tabs/types";
 
 const store = useStore();
 
@@ -26,6 +28,11 @@ export default defineComponent({
     return {
       appIcon,
     };
+  },
+  methods: {
+    closeCurrentTab() {
+      store.commit(TabsMutationType.CLOSE_CURRENT_TAB);
+    },
   },
   computed: {
     tabTitle() {

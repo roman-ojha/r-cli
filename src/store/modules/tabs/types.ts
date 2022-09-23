@@ -46,11 +46,13 @@ type AugmentedActionContext = {
 export enum TabsMutationType {
   CHANGE_TAB = "CHANGE_TAB",
   OPEN_NEW_TAB = "OPEN_NEW_TAB",
+  CLOSE_CURRENT_TAB = "CLOSE_CURRENT_TAB",
 }
 
 export type Mutations<S = TabsState> = {
   [TabsMutationType.CHANGE_TAB](state: S, tabNo: number): void;
   [TabsMutationType.OPEN_NEW_TAB](state: S): void;
+  [TabsMutationType.CLOSE_CURRENT_TAB](state: S): void;
 };
 
 export type TabsStore<S = TabsState> = Omit<
