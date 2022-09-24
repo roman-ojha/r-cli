@@ -1,8 +1,12 @@
 <template>
   <div>
+    <!-- upper part -->
     <UpperFrame />
-    <SideBar />
-    <CLIPlayground />
+    <!-- lower part -->
+    <div class="flex w-full">
+      <SideBar />
+      <CLIPlayground />
+    </div>
   </div>
 </template>
 

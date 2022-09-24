@@ -1,8 +1,8 @@
 <template>
-  <div id="container">
+  <div id="container" class="relative">
     <div
       id="playground-background"
-      class="w-cli-playground h-cli-playground absolute top-upperFrame left-sideBar before:content-[''] before:top-0 before:left-0 before:w-full before:h-full before:absolute before:bg-playgroundImage before:bg-no-repeat before:bg-center before:bg-cover before:saturate-10 before:contrast-140 before:brightness-50"
+      class="w-cli-playground h-cli-playground top-upperFrame left-sideBar before:content-[''] before:top-0 before:left-0 before:w-full before:h-full before:absolute before:bg-playgroundImage before:bg-no-repeat before:bg-center before:bg-cover before:saturate-10 before:contrast-140 before:brightness-50"
     ></div>
     <keep-alive>
       <TabVue

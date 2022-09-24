@@ -14,7 +14,7 @@ module.exports = {
       },
       width: {
         "side-bar": `${sideBarWidth}px`,
-        "cli-playground": `calc(100% - ${sideBarWidth}px)`,
+        "cli-playground": `calc(100vw - ${sideBarWidth}px)`,
       },
       spacing: {
         upperFrame: upperFrameHeight,
