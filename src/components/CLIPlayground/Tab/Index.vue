@@ -1,10 +1,11 @@
 <template>
   <div
     id="cli-playground-tab"
-    class="w-cli-playground h-cli-playground absolute top-upperFrame left-sideBar"
+    class="w-cli-playground h-cli-playground absolute top-upperFrame left-sideBar flex justify-center items-center"
   >
-    <h1 class="text-white">{{ tabInfo.name }}</h1>
-    <input type="text" />
+    <h1 class="text-white text-9xl font-extrabold">
+      {{ tabInfo.name }}
+    </h1>
   </div>
 </template>
 

@@ -1,4 +1,3 @@
-"use strict";
 import { app, protocol, BrowserWindow, ipcMain } from "electron";
 import windowsStateKeeper from "electron-window-state";
 import path from "path";
@@ -25,6 +24,8 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: mainWindowsState.width,
     height: mainWindowsState.height,
+    minWidth: 550,
+    minHeight: 360,
     x: mainWindowsState.x,
     y: mainWindowsState.y,
     title: "R-CLI",

@@ -25,7 +25,6 @@ export default defineComponent({
   },
   methods: {
     handleKeyPressEvent(event: KeyboardEvent) {
-      console.log(event.keyCode);
       if (event.keyCode === 14) {
         // create new Tab Tab
         // ctrl + n
