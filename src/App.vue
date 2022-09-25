@@ -17,6 +17,7 @@ import UpperFrame from "./components/UpperFrame/Index.vue";
 import CLIPlayground from "./components/CLIPlayground/Index.vue";
 import { useStore } from "./store";
 import { TabsMutationType } from "./store/modules/tabs/types";
+import { DocsActionType } from "./store/modules/docs/types";
 import { defineComponent } from "@vue/runtime-core";
 import Docs from "./components/Docs/Index.vue";
 
@@ -40,6 +41,8 @@ export default defineComponent({
         // Close current Tab
         // ctrl + shift + w
         store.commit(TabsMutationType.CLOSE_CURRENT_TAB);
+      } else if (event.keyCode === 4) {
+        store.dispatch(DocsActionType.TOGGLE_DOCS, undefined);
       }
     },
   },

@@ -4,6 +4,8 @@ const upperFrameTBorder = 8;
 const upperFrameHeight = 35 + upperFrameTBorder;
 const sideBarWidth = 50;
 const draggableDivForCliAndDocsWidth = 5;
+const defaultCliWidthFactorAfterDocsVisible = 50;
+const defaultDocsWidthFactorAfterDocsVisible = 40;
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
@@ -17,8 +19,8 @@ module.exports = {
       width: {
         "side-bar": `${sideBarWidth}px`,
         "cli-playground": `calc(100vw - ${sideBarWidth}px)`,
-        "after-docs-visible-cli-playground": `calc(60vw - ${sideBarWidth}px)`,
-        "after-docs-visible-docs": "40vw",
+        "after-docs-visible-cli-playground": `calc(${defaultCliWidthFactorAfterDocsVisible}vw - ${sideBarWidth}px)`,
+        "after-docs-visible-docs": `${defaultDocsWidthFactorAfterDocsVisible}vw`,
         "draggable-div-for-cli-and-docs": `${draggableDivForCliAndDocsWidth}px`,
       },
       spacing: {
