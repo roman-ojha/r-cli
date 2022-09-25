@@ -24,25 +24,25 @@
 import { defineComponent } from "vue";
 import CurrentTerminalTab from "./CurrentTerminalTab.vue";
 import WindowsControlButton from "./WindowsControlButton.vue";
+import { useStore } from "../../store";
+import { DocsActionType } from "../../store/modules/docs/types";
+
+const store = useStore();
+
 export default defineComponent({
   name: "UpperFrame",
   components: {
     CurrentTerminalTab,
     WindowsControlButton,
   },
-  methods: {
-    toggleDocs() {
-      // const cliPlaygroundElm = document.getElementById(
-      //   "cli-playground-container"
-      // );
-      // const docsElm = document.getElementById("docs-container");
+  computed: {
+    isDocsVisible() {
+      return store.getters["isDocsVisible"];
     },
   },
-  props: {
-    displayDocs: {
-      type: Boolean,
-      required: true,
-      default: false,
+  methods: {
+    toggleDocs() {
+      return store.dispatch(DocsActionType.TOGGLE_DOCS, undefined);
     },
   },
 });

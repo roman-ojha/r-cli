@@ -1,12 +1,12 @@
 <template>
   <div>
     <!-- upper part -->
-    <UpperFrame :displayDocs="displayDocs" />
+    <UpperFrame />
     <!-- lower part -->
     <div class="flex w-full">
       <SideBar />
       <CLIPlayground />
-      <Docs />
+      <Docs v-if="isDocsVisible" />
     </div>
   </div>
 </template>
@@ -30,10 +30,10 @@ export default defineComponent({
     CLIPlayground,
     Docs,
   },
-  data() {
-    return {
-      displayDocs: false,
-    };
+  computed: {
+    isDocsVisible() {
+      return store.getters["isDocsVisible"];
+    },
   },
   methods: {
     handleKeyPressEvent(event: KeyboardEvent) {

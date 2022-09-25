@@ -6,6 +6,5 @@ export type RootState = {
   docs: DocsState;
 };
 
-export type Store =
-  | TabsStore<Pick<RootState, "tabs">>
-  | DocsStore<Pick<RootState, "docs">>;
+export type Store = TabsStore<Pick<RootState, "tabs">> &
+  DocsStore<Pick<RootState, "docs">>;
