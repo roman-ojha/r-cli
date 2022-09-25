@@ -1,11 +1,12 @@
 <template>
   <div>
     <!-- upper part -->
-    <UpperFrame />
+    <UpperFrame :displayDocs="displayDocs" />
     <!-- lower part -->
     <div class="flex w-full">
       <SideBar />
       <CLIPlayground />
+      <Docs />
     </div>
   </div>
 </template>
@@ -17,6 +18,7 @@ import CLIPlayground from "./components/CLIPlayground/Index.vue";
 import { useStore } from "./store";
 import { TabsMutationType } from "./store/modules/tabs/types";
 import { defineComponent } from "@vue/runtime-core";
+import Docs from "./components/Docs/Index.vue";
 
 const store = useStore();
 
@@ -26,6 +28,12 @@ export default defineComponent({
     UpperFrame,
     SideBar,
     CLIPlayground,
+    Docs,
+  },
+  data() {
+    return {
+      displayDocs: false,
+    };
   },
   methods: {
     handleKeyPressEvent(event: KeyboardEvent) {

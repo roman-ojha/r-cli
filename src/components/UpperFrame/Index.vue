@@ -9,11 +9,12 @@
       class="flex justify-between items-center"
       style="-webkit-app-region: no-drag"
     >
-      <h2
+      <button
         class="text-white text-sm font-bold mr-10vw cursor-pointer hover:text-gray-300 duration-100"
+        @click="toggleDocs"
       >
         Docs
-      </h2>
+      </button>
       <WindowsControlButton />
     </div>
   </div>
@@ -28,6 +29,21 @@ export default defineComponent({
   components: {
     CurrentTerminalTab,
     WindowsControlButton,
+  },
+  methods: {
+    toggleDocs() {
+      // const cliPlaygroundElm = document.getElementById(
+      //   "cli-playground-container"
+      // );
+      // const docsElm = document.getElementById("docs-container");
+    },
+  },
+  props: {
+    displayDocs: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
   },
 });
 </script>

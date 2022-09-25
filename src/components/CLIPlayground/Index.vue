@@ -1,5 +1,8 @@
 <template>
-  <div id="container" class="relative w-cli-playground h-cli-playground">
+  <div
+    id="cli-playground-container"
+    class="relative w-cli-playground h-cli-playground"
+  >
     <div
       id="playground-background"
       class="w-full h-full before:content-[''] before:w-full before:h-full before:absolute before:bg-playgroundImage before:bg-no-repeat before:bg-center before:bg-cover before:saturate-10 before:contrast-140 before:brightness-50"
