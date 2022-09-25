@@ -5,12 +5,16 @@ const sideBarWidth = 50;
 export default {
   height: {
     upperFrame: `${upperFrameHeight}px`,
-    "side-bar": `calc(100vh - ${upperFrameHeight}px)`,
-    "cli-playground": `calc(100vh - ${upperFrameHeight}px)`,
+    sideBar: `calc(100vh - ${upperFrameHeight}px)`,
+    cliPlayground: `calc(100vh - ${upperFrameHeight}px)`,
   },
   width: {
-    "side-bar": `${sideBarWidth}px`,
-    "cli-playground": `calc(100vw - ${sideBarWidth}px)`,
+    sideBar: `${sideBarWidth}px`,
+    cliPlayground: `calc(100vw - ${sideBarWidth}px)`,
+    afterDocsVisibleOn: {
+      cliPlayground: `calc(60vw - ${sideBarWidth}px)`,
+      docs: "40vw",
+    },
   },
 };
 

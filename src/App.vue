@@ -6,7 +6,7 @@
     <div class="flex w-full">
       <SideBar />
       <CLIPlayground />
-      <Docs v-if="isDocsVisible" />
+      <Docs />
     </div>
   </div>
 </template>
@@ -29,11 +29,6 @@ export default defineComponent({
     SideBar,
     CLIPlayground,
     Docs,
-  },
-  computed: {
-    isDocsVisible() {
-      return store.getters["isDocsVisible"];
-    },
   },
   methods: {
     handleKeyPressEvent(event: KeyboardEvent) {

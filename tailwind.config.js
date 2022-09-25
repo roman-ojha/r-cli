@@ -11,10 +11,13 @@ module.exports = {
         upperFrame: `${upperFrameHeight}px`,
         "side-bar": `calc(100vh - ${upperFrameHeight}px)`,
         "cli-playground": `calc(100vh - ${upperFrameHeight}px)`,
+        docs: `calc(100vh - ${upperFrameHeight}px)`,
       },
       width: {
         "side-bar": `${sideBarWidth}px`,
         "cli-playground": `calc(100vw - ${sideBarWidth}px)`,
+        "after-docs-visible-cli-playground": `calc(60vw - ${sideBarWidth}px)`,
+        "after-docs-visible-docs": "40vw",
       },
       spacing: {
         upperFrame: upperFrameHeight,
