@@ -7,19 +7,19 @@ import {
 } from "vuex";
 
 export interface DocsState {
-  isVisible: false;
+  isVisible: boolean;
 }
 
 export interface Getters {
-  isDocsVisible(state: DocsState): boolean;
+  isDocsVisible(state: DocsState): DocsState["isVisible"];
 }
 
-export enum TabsActionType {
+export enum DocsActionType {
   TOGGLE_DOCS = "TOGGLE_DOCS",
 }
 
 export interface Actions {
-  [TabsActionType.TOGGLE_DOCS]({ commit }: AugmentedActionContext): void;
+  [DocsActionType.TOGGLE_DOCS]({ commit }: AugmentedActionContext): void;
 }
 
 type AugmentedActionContext = {
@@ -29,15 +29,15 @@ type AugmentedActionContext = {
   ): ReturnType<Mutations[K]>;
 } & Omit<ActionContext<DocsState, RootState>, "commit">;
 
-export enum TabsMutationType {
+export enum DocsMutationType {
   TOGGLE_DOCS = "TOGGLE_DOCS",
 }
 
 export type Mutations<S = DocsState> = {
-  [TabsMutationType.TOGGLE_DOCS](state: S): void;
+  [DocsMutationType.TOGGLE_DOCS](state: S): void;
 };
 
-export type TabsStore<S = DocsState> = Omit<
+export type DocsStore<S = DocsState> = Omit<
   VuexStore<S>,
   "getters" | "commit" | "dispatch"
 > & {
