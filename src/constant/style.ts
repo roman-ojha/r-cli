@@ -1,6 +1,7 @@
 const upperFrameTBorder = 8;
 const upperFrameHeight = 35 + upperFrameTBorder;
 const sideBarWidth = 50;
+const draggableDivForCliAndDocsWidth = 5;
 
 export default {
   height: {
@@ -11,6 +12,7 @@ export default {
   width: {
     sideBar: `${sideBarWidth}px`,
     cliPlayground: `calc(100vw - ${sideBarWidth}px)`,
+    draggableDivForCliAndDocs: `${draggableDivForCliAndDocsWidth}px`,
     afterDocsVisibleOn: {
       cliPlayground: `calc(60vw - ${sideBarWidth}px)`,
       docs: "40vw",
@@ -18,4 +20,9 @@ export default {
   },
 };
 
-export { upperFrameHeight, upperFrameTBorder, sideBarWidth };
+export {
+  upperFrameHeight,
+  upperFrameTBorder,
+  sideBarWidth,
+  draggableDivForCliAndDocsWidth,
+};
