@@ -71,6 +71,8 @@ export default defineComponent({
         cliPlaygroundElm!.style.width =
           styleConstant.width.afterDocsVisibleOn.cliPlayground;
         docsElm!.style.width = styleConstant.width.afterDocsVisibleOn.docs;
+      } else if (cliPlaygroundElm && docsElm && !isDocsVisible) {
+        docsElm.classList.remove("w-after-docs-visible-docs");
       }
     },
   },
@@ -86,9 +88,13 @@ export default defineComponent({
     draggableDiv?.addEventListener("mousedown", (e) => {
       cliPlaygroundElm?.addEventListener("mousemove", this.mouseMoveLeft);
       docsElm?.addEventListener("mousemove", this.mouseMoveRight);
+      draggableDiv.classList.add("bg-primary");
+
       window.addEventListener("mouseup", (e) => {
         cliPlaygroundElm?.removeEventListener("mousemove", this.mouseMoveLeft);
         docsElm?.removeEventListener("mousemove", this.mouseMoveRight);
+        draggableDiv.classList.add("bg-black");
+        draggableDiv.classList.remove("bg-primary");
       });
     });
 

@@ -1,7 +1,7 @@
 import { DocsState } from "./types";
 
 const tabState: DocsState = {
-  isVisible: true,
+  isVisible: false,
 };
 
 export default tabState;

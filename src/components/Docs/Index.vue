@@ -25,16 +25,22 @@ export default defineComponent({
         "cli-playground-container"
       );
       const docsElm = document.getElementById("docs-container");
-      if (cliPlaygroundElm && docsElm && value) {
-        cliPlaygroundElm!.style.width =
-          styleConstant.width.afterDocsVisibleOn.cliPlayground;
-        docsElm!.style.width = styleConstant.width.afterDocsVisibleOn.docs;
-      } else if (cliPlaygroundElm && docsElm && !value) {
+      if (cliPlaygroundElm && docsElm && !value) {
         cliPlaygroundElm!.style.width = styleConstant.width.cliPlayground;
         docsElm!.style.width = "0px";
       }
       return value;
     },
+  },
+  mounted() {
+    const isDocsVisible = store.getters["isDocsVisible"];
+    const cliPlaygroundElm = document.getElementById(
+      "cli-playground-container"
+    );
+    const docsElm = document.getElementById("docs-container");
+    if (cliPlaygroundElm && docsElm && !isDocsVisible) {
+      docsElm.classList.remove("w-after-docs-visible-docs");
+    }
   },
 });
 </script>
