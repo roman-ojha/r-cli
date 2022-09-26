@@ -25,6 +25,9 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
       );
     }
   },
+  [TabsMutationType.RENAME_TAB_TITLE](state: TabsState, newName: string) {
+    state.tabs[state.activeTabIndex].name = newName;
+  },
 };
 
 export default tabsMutation;

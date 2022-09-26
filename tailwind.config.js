@@ -39,6 +39,7 @@ module.exports = {
       backgroundColor: {
         "gray-black-700": "#3f3f3fde",
         "gray-black-200": "#3f3f3f8a",
+        "gray-black-900": "#7272728a",
         "close-button": "#FF5252",
         "max-min-win-button": "#2CEC56",
         "minimize-button": "#E6E950",
@@ -50,7 +51,9 @@ module.exports = {
       margin: {
         "10vw": "5vw",
       },
-      color: {},
+      colors: {
+        primary: "#809DE5",
+      },
       boxShadow: {
         tab: "1px 3px 0px #535353ff",
       },
