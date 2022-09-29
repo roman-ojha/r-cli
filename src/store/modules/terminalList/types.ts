@@ -38,7 +38,7 @@ export type Mutations<S = TerminalListState> = {
   ): void;
 };
 
-export type DocsStore<S = TerminalListState> = Omit<
+export type TerminalListStore<S = TerminalListState> = Omit<
   VuexStore<S>,
   "getters" | "commit" | "dispatch"
 > & {

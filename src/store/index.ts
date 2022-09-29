@@ -1,6 +1,7 @@
 import { createLogger, createStore } from "vuex";
 import tabsStore from "./modules/tabs";
 import docsStore from "./modules/docs";
+import terminalListStore from "./modules/terminalList";
 import { Store } from "./types";
 
 const debug = process.env.NODE_ENV !== "production";
@@ -11,6 +12,7 @@ export const store = createStore({
   modules: {
     tabsStore,
     docsStore,
+    terminalListStore,
   },
 });
 

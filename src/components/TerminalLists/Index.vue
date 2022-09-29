@@ -29,8 +29,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount } from "vue";
+import { defineComponent } from "vue";
 import { Icon } from "@iconify/vue";
+import { useStore } from "../../store";
+
+const store = useStore();
+
 export default defineComponent({
   name: "TerminalLists",
   components: {
@@ -42,6 +46,9 @@ export default defineComponent({
       if (terminalListElm.id === "terminal-list-component") {
       }
     },
+  },
+  computed: {
+    isVisible() {},
   },
   mounted() {
     document
