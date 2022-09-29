@@ -20,6 +20,7 @@
       icon="carbon:list-boxes"
       :color="terminalListColor"
       class="w-4 h-4 mt-3 cursor-pointer"
+      @click="openTerminalList()"
     />
 
     <!-- Terminal Lists Portal -->
@@ -35,6 +36,7 @@ import TabButton from "./TabButton.vue";
 import { Icon } from "@iconify/vue";
 import { useStore } from "../../store";
 import { TabsMutationType } from "../../store/modules/tabs/types";
+import { TerminalListMutationType } from "../../store/modules/terminalList/types";
 import TerminalLists from "../TerminalLists/Index.vue";
 
 const store = useStore();
@@ -72,6 +74,12 @@ export default defineComponent({
     },
     createNewTab() {
       store.commit(TabsMutationType.OPEN_NEW_TAB);
+    },
+    openTerminalList() {
+      store.commit(
+        TerminalListMutationType.CHANGE_TERMINAL_VISIBILITY,
+        "visible"
+      );
     },
   },
 });

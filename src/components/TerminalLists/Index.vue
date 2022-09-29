@@ -2,6 +2,8 @@
   <div
     id="terminal-list-component"
     class="absolute w-full h-full bg-transparent top-0 left-0 flex justify-center items-center"
+    v-if="isVisible === 'visible'"
+    @click="closeTerminalList"
   >
     <div
       class="w-72 h-max bg-gray-700 rounded-md flex flex-col items-center gap-4 pb-3"
@@ -32,6 +34,7 @@
 import { defineComponent } from "vue";
 import { Icon } from "@iconify/vue";
 import { useStore } from "../../store";
+import { TerminalListMutationType } from "../../store/modules/terminalList/types";
 
 const store = useStore();
 
@@ -44,21 +47,17 @@ export default defineComponent({
     closeTerminalList(e: MouseEvent) {
       const terminalListElm = e.target as HTMLDivElement;
       if (terminalListElm.id === "terminal-list-component") {
+        store.commit(
+          TerminalListMutationType.CHANGE_TERMINAL_VISIBILITY,
+          "hidden"
+        );
       }
     },
   },
   computed: {
-    isVisible() {},
-  },
-  mounted() {
-    document
-      .getElementById("terminal-list-component")
-      ?.addEventListener("click", this.closeTerminalList);
-  },
-  onBeforeMount() {
-    document
-      .getElementById("terminal-list-component")
-      ?.removeEventListener("click", this.closeTerminalList);
+    isVisible() {
+      return store.getters["isTerminalListVisible"];
+    },
   },
 });
 </script>
