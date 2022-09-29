@@ -29,12 +29,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onBeforeMount } from "vue";
 import { Icon } from "@iconify/vue";
 export default defineComponent({
   name: "TerminalLists",
   components: {
     Icon,
+  },
+  methods: {
+    closeTerminalList(e: MouseEvent) {
+      const terminalListElm = e.target as HTMLDivElement;
+      if (terminalListElm.id === "terminal-list-component") {
+      }
+    },
+  },
+  mounted() {
+    document
+      .getElementById("terminal-list-component")
+      ?.addEventListener("click", this.closeTerminalList);
+  },
+  onBeforeMount() {
+    document
+      .getElementById("terminal-list-component")
+      ?.removeEventListener("click", this.closeTerminalList);
   },
 });
 </script>
