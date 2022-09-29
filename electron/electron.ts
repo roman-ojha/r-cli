@@ -30,9 +30,10 @@ async function createWindow() {
     y: mainWindowsState.y,
     title: "R-CLI",
     webPreferences: {
-      nodeIntegration: process.env
-        .ELECTRON_NODE_INTEGRATION as unknown as boolean,
-      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+      // nodeIntegration: process.env
+      //   .ELECTRON_NODE_INTEGRATION as unknown as boolean,
+      // contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+      nodeIntegration: true,
       preload: path.join(__dirname, "./preload.js"),
     },
     icon: path.join(__dirname, "../../assets/appicon.ico"),

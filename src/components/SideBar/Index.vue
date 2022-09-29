@@ -10,20 +10,22 @@
       :key="tab.id"
       @click="changeTab(tab.id)"
     />
-    <!-- <router-link
-      v-for="tab in tabInfo"
-      :key="tab.id"
-      :to="`/${tab.id}`"
-      @click="changeTab(tab.id)"
-    >
-      <TabButton :id="tab.id" :activeTabId="activeTabId" />
-    </router-link> -->
     <Icon
       icon="carbon:add-filled"
       :color="plusIconColor"
       class="w-6 h-6 mt-2 cursor-pointer"
       @click="createNewTab()"
     />
+    <Icon
+      icon="carbon:list-boxes"
+      :color="terminalListColor"
+      class="w-4 h-4 mt-3 cursor-pointer"
+    />
+
+    <!-- Terminal Lists Portal -->
+    <teleport to="#terminal-list-portal">
+      <TerminalLists />
+    </teleport>
   </div>
 </template>
 
@@ -33,11 +35,17 @@ import TabButton from "./TabButton.vue";
 import { Icon } from "@iconify/vue";
 import { useStore } from "../../store";
 import { TabsMutationType } from "../../store/modules/tabs/types";
+import TerminalLists from "../TerminalLists/Index.vue";
 
 const store = useStore();
 
 export default defineComponent({
   name: "SideBar",
+  components: {
+    Icon,
+    TabButton,
+    TerminalLists,
+  },
   computed: {
     activeTabId() {
       return store.getters["activeTabId"];
@@ -55,6 +63,7 @@ export default defineComponent({
   data() {
     return {
       plusIconColor: "#809DE5",
+      terminalListColor: "#809DE5",
     };
   },
   methods: {
@@ -64,10 +73,6 @@ export default defineComponent({
     createNewTab() {
       store.commit(TabsMutationType.OPEN_NEW_TAB);
     },
-  },
-  components: {
-    Icon,
-    TabButton,
   },
 });
 </script>
