@@ -7,7 +7,7 @@ import {
 } from "vuex";
 
 export interface TerminalListState {
-  isVisible: boolean;
+  isVisible: "visible" | "hidden";
 }
 
 export interface Getters {
@@ -16,7 +16,7 @@ export interface Getters {
   ): TerminalListState["isVisible"];
 }
 
-export enum DocsActionType {}
+export enum TerminalListActionType {}
 
 export interface Actions {}
 
@@ -27,12 +27,15 @@ type AugmentedActionContext = {
   ): ReturnType<Mutations[K]>;
 } & Omit<ActionContext<TerminalListState, RootState>, "commit">;
 
-export enum DocsMutationType {
+export enum TerminalListMutationType {
   CHANGE_TERMINAL_VISIBILITY = "CHANGE_TERMINAL_VISIBILITY",
 }
 
 export type Mutations<S = TerminalListState> = {
-  [DocsMutationType.CHANGE_TERMINAL_VISIBILITY](state: S): void;
+  [TerminalListMutationType.CHANGE_TERMINAL_VISIBILITY](
+    state: S,
+    payload: TerminalListState["isVisible"]
+  ): void;
 };
 
 export type DocsStore<S = TerminalListState> = Omit<
