@@ -6,11 +6,14 @@ import {
   DispatchOptions,
 } from "vuex";
 
+export type TerminalProgram = "r-cli" | "powershell" | "cmd";
+
 export interface TerminalListState {
   isVisible: "visible" | "hidden";
   list: {
     id: number;
     name: string;
+    program: TerminalProgram;
   }[];
 }
 

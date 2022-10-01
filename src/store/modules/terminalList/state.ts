@@ -6,14 +6,17 @@ const tabState: TerminalListState = {
     {
       id: 1,
       name: "R-CLI",
+      program: "r-cli",
     },
     {
       id: 2,
       name: "powershell",
+      program: "powershell",
     },
     {
       id: 3,
       name: "cmd",
+      program: "cmd",
     },
   ],
 };

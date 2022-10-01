@@ -37,7 +37,10 @@ export default defineComponent({
       if (event.keyCode === 14) {
         // create new Tab Tab
         // ctrl + n
-        store.commit(TabsMutationType.OPEN_NEW_TAB);
+        store.commit(TabsMutationType.OPEN_NEW_TAB, {
+          lastTerminal: true,
+          terminal: null,
+        });
       } else if (event.keyCode === 23) {
         // Close current Tab
         // ctrl + shift + w

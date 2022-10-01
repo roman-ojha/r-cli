@@ -73,7 +73,10 @@ export default defineComponent({
       store.commit(TabsMutationType.CHANGE_TAB, tabId);
     },
     createNewTab() {
-      store.commit(TabsMutationType.OPEN_NEW_TAB);
+      store.commit(TabsMutationType.OPEN_NEW_TAB, {
+        lastTerminal: true,
+        terminal: null,
+      });
     },
     openTerminalList() {
       store.commit(

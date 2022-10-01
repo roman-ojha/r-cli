@@ -5,12 +5,14 @@ const tabState: TabsState = {
   activeTabIndex: 0,
   tabs: [
     {
-      name: "R-CLI 1",
       id: 1,
+      name: "R-CLI",
+      program: "r-cli",
     },
     {
-      name: "R-CLI 2",
       id: 2,
+      name: "R-CLI",
+      program: "r-cli",
     },
   ],
 };

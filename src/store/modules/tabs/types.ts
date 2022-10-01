@@ -5,10 +5,12 @@ import {
   CommitOptions,
   DispatchOptions,
 } from "vuex";
+import { TerminalProgram } from "../terminalList/types";
 
 export interface Tab {
-  name: string;
   id: number;
+  name: string;
+  program: TerminalProgram;
 }
 
 export interface TabsState {
@@ -53,7 +55,13 @@ export enum TabsMutationType {
 
 export type Mutations<S = TabsState> = {
   [TabsMutationType.CHANGE_TAB](state: S, tabId: number): void;
-  [TabsMutationType.OPEN_NEW_TAB](state: S): void;
+  [TabsMutationType.OPEN_NEW_TAB](
+    state: S,
+    payload: {
+      terminal: TerminalProgram | null;
+      lastTerminal: boolean;
+    }
+  ): void;
   [TabsMutationType.CLOSE_CURRENT_TAB](state: S): void;
   [TabsMutationType.RENAME_TAB_TITLE](state: S, newName: string): void;
 };
