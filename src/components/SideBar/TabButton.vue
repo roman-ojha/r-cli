@@ -11,13 +11,21 @@
       id == activeTabId ? '' : 'hover:bg-gray-black-200',
     ]"
   >
-    <img :src="appIcon" class="w-5" />
+    <img v-if="program === 'r-cli'" :src="appIcon" class="w-5" />
+    <Icon
+      v-if="program !== 'r-cli'"
+      icon="bi:terminal"
+      color="#FF5252"
+      width="20"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import appIcon from "../../assets/images/appicon.png";
+import { Icon } from "@iconify/vue";
+import { TerminalProgram } from "../../store/modules/terminalList/types";
 
 export default defineComponent({
   name: "TabVue",
@@ -26,6 +34,9 @@ export default defineComponent({
       appIcon,
     };
   },
+  components: {
+    Icon,
+  },
   props: {
     id: {
       type: Number,
@@ -33,6 +44,10 @@ export default defineComponent({
     },
     activeTabId: {
       type: Number,
+      required: true,
+    },
+    program: {
+      type: Object as () => TerminalProgram,
       required: true,
     },
   },

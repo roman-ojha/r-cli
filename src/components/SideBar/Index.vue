@@ -7,6 +7,7 @@
       v-for="tab in tabInfo"
       :id="tab.id"
       :activeTabId="activeTabId"
+      :program="tab.program"
       :key="tab.id"
       @click="changeTab(tab.id)"
     />
