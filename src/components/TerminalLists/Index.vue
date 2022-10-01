@@ -21,6 +21,7 @@
           class="bg-gray-400 w-11/12 flex justify-start items-center p-2 rounded-md cursor-pointer duration-100 hover:bg-slate-500 active:bg-slate-400"
           v-for="terminal in getList"
           :key="terminal.id"
+          @click="createNewTerminal(terminal.program)"
         >
           <Icon icon="bi:terminal" color="white" width="20" />
           <h1 class="text-white text-lg ml-4">{{ terminal.name }}</h1>
@@ -34,7 +35,11 @@
 import { defineComponent } from "vue";
 import { Icon } from "@iconify/vue";
 import { useStore } from "../../store";
-import { TerminalListMutationType } from "../../store/modules/terminalList/types";
+import {
+  TerminalListMutationType,
+  TerminalProgram,
+} from "../../store/modules/terminalList/types";
+import { TabsMutationType } from "../../store/modules/tabs/types";
 
 const store = useStore();
 
@@ -52,6 +57,12 @@ export default defineComponent({
           "hidden"
         );
       }
+    },
+    createNewTerminal(terminal: TerminalProgram) {
+      store.commit(TabsMutationType.OPEN_NEW_TAB, {
+        lastTerminal: false,
+        terminal,
+      });
     },
   },
   computed: {

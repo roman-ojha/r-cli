@@ -36,7 +36,7 @@ export default defineComponent({
     handleKeyPressEvent(event: KeyboardEvent) {
       if (event.keyCode === 14) {
         // create new Tab Tab
-        // ctrl + n
+        // ctrl + n | ctrl + shift + n
         store.commit(TabsMutationType.OPEN_NEW_TAB, {
           lastTerminal: true,
           terminal: null,
@@ -46,9 +46,11 @@ export default defineComponent({
         // ctrl + shift + w
         store.commit(TabsMutationType.CLOSE_CURRENT_TAB);
       } else if (event.keyCode === 4) {
+        // ctrl + d | ctrl + shift + d
         store.dispatch(DocsActionType.TOGGLE_DOCS, undefined);
       } else if (event.keyCode === 20) {
         // toggle terminal list
+        // ctrl + t | ctrl + shift + t
         store.commit(
           TerminalListMutationType.TOGGLE_TERMINAL_VISIBILITY,
           undefined

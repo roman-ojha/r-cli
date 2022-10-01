@@ -15,10 +15,6 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
     }
   ) {
     if (state.tabs.length < 10) {
-      // state.tabs.push({
-      //   name: `R-CLI ${state.tabs[state.tabs.length - 1].id + 1}`,
-      //   id: state.tabs[state.tabs.length - 1].id + 1,
-      // });
       if (payload.lastTerminal && payload.terminal === null) {
         const lastTerminal = state.tabs[state.tabs.length - 1].program;
         if (lastTerminal === "r-cli") {
@@ -68,7 +64,16 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
     if (state.tabs.length === 0) {
       window.electronAPI.closeWindows();
     } else {
-      state.activeTabId = state.tabs[0].id;
+      if (state.activeTabIndex === 0) {
+        console.log("first");
+        state.activeTabId = state.tabs[0].id;
+      } else if (state.activeTabIndex === state.tabs.length) {
+        console.log("last");
+        state.activeTabId = state.tabs[state.tabs.length - 1].id;
+      } else {
+        console.log("middle");
+        state.activeTabId = state.tabs[state.activeTabIndex].id;
+      }
       state.activeTabIndex = state.tabs.findIndex(
         (tab) => tab.id === state.activeTabId
       );
