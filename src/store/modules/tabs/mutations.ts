@@ -8,8 +8,12 @@ const tabsMutation: MutationTree<TabsState> & Mutations = {
   },
   [TabsMutationType.OPEN_NEW_TAB]: function (state: TabsState) {
     if (state.tabs.length < 10) {
+      // state.tabs.push({
+      //   name: `R-CLI ${state.tabs[state.tabs.length - 1].id + 1}`,
+      //   id: state.tabs[state.tabs.length - 1].id + 1,
+      // });
       state.tabs.push({
-        name: `R-CLI ${state.tabs[state.tabs.length - 1].id + 1}`,
+        name: `R-CLI`,
         id: state.tabs[state.tabs.length - 1].id + 1,
       });
     }

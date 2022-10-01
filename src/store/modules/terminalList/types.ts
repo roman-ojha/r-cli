@@ -8,12 +8,17 @@ import {
 
 export interface TerminalListState {
   isVisible: "visible" | "hidden";
+  list: {
+    id: number;
+    name: string;
+  }[];
 }
 
 export interface Getters {
   isTerminalListVisible(
     state: TerminalListState
   ): TerminalListState["isVisible"];
+  getTerminalList(state: TerminalListState): TerminalListState["list"];
 }
 
 export enum TerminalListActionType {}
@@ -29,6 +34,7 @@ type AugmentedActionContext = {
 
 export enum TerminalListMutationType {
   CHANGE_TERMINAL_VISIBILITY = "CHANGE_TERMINAL_VISIBILITY",
+  TOGGLE_TERMINAL_VISIBILITY = "TOGGLE_TERMINAL_VISIBILITY",
 }
 
 export type Mutations<S = TerminalListState> = {
@@ -36,6 +42,7 @@ export type Mutations<S = TerminalListState> = {
     state: S,
     payload: TerminalListState["isVisible"]
   ): void;
+  [TerminalListMutationType.TOGGLE_TERMINAL_VISIBILITY](state: S): void;
 };
 
 export type TerminalListStore<S = TerminalListState> = Omit<

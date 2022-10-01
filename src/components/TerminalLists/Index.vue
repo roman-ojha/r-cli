@@ -19,11 +19,11 @@
       >
         <div
           class="bg-gray-400 w-11/12 flex justify-start items-center p-2 rounded-md cursor-pointer duration-100 hover:bg-slate-500 active:bg-slate-400"
-          v-for="i in 3"
-          :key="i"
+          v-for="terminal in getList"
+          :key="terminal.id"
         >
           <Icon icon="bi:terminal" color="white" width="20" />
-          <h1 class="text-white text-lg ml-4">Powershell</h1>
+          <h1 class="text-white text-lg ml-4">{{ terminal.name }}</h1>
         </div>
       </div>
     </div>
@@ -57,6 +57,9 @@ export default defineComponent({
   computed: {
     isVisible() {
       return store.getters["isTerminalListVisible"];
+    },
+    getList() {
+      return store.getters["getTerminalList"];
     },
   },
 });
