@@ -1,7 +1,7 @@
 <template>
   <div
     id="container"
-    class="w-side-bar bg-black h-side-bar flex flex-col justify-start items-center py-2"
+    class="w-side-bar bg-black h-side-bar flex flex-col justify-start items-center py-2 overflow-y-auto"
   >
     <TabButton
       v-for="tab in tabInfo"
@@ -89,4 +89,18 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+#container::-webkit-scrollbar {
+  width: 3px;
+}
+#container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+#container::-webkit-scrollbar-thumb {
+  background-color: #5ce77a;
+  border-radius: 10px;
+}
+#container::-webkit-scrollbar-thumb:hover {
+  background-color: #2cec56;
+}
+</style>
