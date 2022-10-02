@@ -14,6 +14,14 @@ export default defineComponent({
     const terminal = new Terminal();
     const terminalElm = document.getElementById("terminal-container");
     terminal.open(terminalElm!);
+    terminal.onData((e) => {
+      // terminal.write(e);
+      window.electronAPI.sendTerminalData(e);
+    });
+
+    window.electronAPI.terminalIncoming((event: any, data: any) => {
+      terminal.write(data);
+    });
   },
 });
 </script>

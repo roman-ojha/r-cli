@@ -2,6 +2,10 @@ import { app, protocol, BrowserWindow, ipcMain } from "electron";
 import windowsStateKeeper from "electron-window-state";
 import path from "path";
 import electronReloader from "electron-reloader";
+import os from "os";
+import pty from "node-pty";
+var shell = os.platform() === "win32" ? "powershell.exe" : "bash";
+console.log(shell);
 
 const isDev = process.env.IS_DEV == "true" ? true : false;
 if (isDev) {
@@ -50,6 +54,26 @@ async function createWindow() {
     win.webContents.openDevTools({ mode: "detach" });
     // win.webContents.openDevTools();
   }
+
+  const ptyProcess = pty.spawn(shell, [], {
+    name: "xterm-color",
+    cols: 80,
+    rows: 24,
+    cwd: process.env.HOME,
+    env: process.env as { [key: string]: string },
+  });
+
+  ptyProcess.on("data", function (data) {
+    // data coming from terminal
+    // and sending that front-end
+    win.webContents.send("terminal-incoming", data);
+  });
+
+  ipcMain.on("send-terminal-data", (event, data) => {
+    // data going to the terminal
+    ptyProcess.write(data);
+  });
+
   ipcMain.on("minimize-window", function () {
     win.minimize();
   });
