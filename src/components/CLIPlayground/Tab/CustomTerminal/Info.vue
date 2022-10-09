@@ -2,23 +2,27 @@
   <div class="h-10 pl-2 flex justify-center items-center w-max">
     <div class="flex justify-center items-center">
       <div
-        class="bg-blue-500 h-8 rounded-l-full pl-4 pr-4 flex justify-center items-center"
+        class="bg-blue-500 h-7 rounded-l-full pl-6 pr-4 flex justify-center items-center"
       >
         <h2 class="font-semibold">Roman</h2>
       </div>
       <div class="flex flex-col">
         <div
-          class="border-l-8 border-r-8 border-b-8 border-t-8 border-solid border-l-blue-500 border-r-transparent border-b-transparent border-t-blue-500"
+          class="border-l-7 border-r-7 border-b-7 border-t-7 border-solid border-l-blue-500 border-r-transparent border-b-transparent border-t-blue-500"
         ></div>
         <div
-          class="border-l-8 border-r-8 border-b-8 border-t-8 border-solid border-l-blue-500 border-r-transparent border-b-blue-500 border-t-transparent"
+          class="border-l-7 border-r-7 border-b-7 border-t-7 border-solid border-l-blue-500 border-r-transparent border-b-blue-500 border-t-transparent"
         ></div>
       </div>
     </div>
-    <div class="h-8 bg-green">
-      <div></div>
-      <div>
-        <Icon icon="ant-design:home-filled" color="white" />
+    <div class="h-8 bg-green flex justify-center items-center relative right-5">
+      <div
+        class="border-l-14 border-r-14 border-b-14 border-t-14 border-solid border-l-transparent border-r-green-500 border-b-transparent border-t-transparent"
+      ></div>
+      <div
+        class="bg-green-500 h-7 flex justify-center items-center pl-2 pr-4 rounded-r-2xl"
+      >
+        <Icon icon="ant-design:home-filled" width="20px" />
       </div>
     </div>
   </div>
