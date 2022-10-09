@@ -1,9 +1,10 @@
 <template>
-  <div class="w-full pr-2 pt-1">
+  <div class="w-full pr-2 pt-1.5">
     <textarea
       id="custom-terminal-input-form"
       class="bg-transparent text-white outline-none resize-none h-auto overflow-hidden w-full text-lg"
       @input="autoGrow"
+      autofocus
     ></textarea>
   </div>
 </template>
