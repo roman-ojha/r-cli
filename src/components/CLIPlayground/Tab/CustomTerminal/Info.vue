@@ -1,6 +1,6 @@
 <template>
-  <div class="h-10 pl-2 flex justify-center items-center w-max">
-    <div class="flex justify-center items-center">
+  <div class="h-10 pl-1 mr-1 flex justify-center items-center w-max">
+    <div class="flex justify-center items-center relative left-1">
       <div
         class="bg-blue-500 h-7 rounded-l-full pl-6 pr-4 flex justify-center items-center"
       >
@@ -15,9 +15,9 @@
         ></div>
       </div>
     </div>
-    <div class="h-8 bg-green flex justify-center items-center relative right-5">
+    <div class="h-8 bg-green flex justify-center items-center">
       <div
-        class="border-l-14 border-r-14 border-b-14 border-t-14 border-solid border-l-transparent border-r-green-500 border-b-transparent border-t-transparent"
+        class="border-l-0 border-r-14 border-b-14 border-t-14 border-solid border-r-green-500 border-b-transparent border-t-transparent"
       ></div>
       <div
         class="bg-green-500 h-7 flex justify-center items-center pl-2 pr-4 rounded-r-2xl"
