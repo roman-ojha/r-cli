@@ -1,8 +1,8 @@
 <template>
-  <div class="">
+  <div class="w-full pr-2 pt-1">
     <textarea
       id="custom-terminal-input-form"
-      class="bg-transparent text-white outline-none resize-none h-auto border-2 border-solid border-red-500"
+      class="bg-transparent text-white outline-none resize-none h-auto overflow-hidden w-full text-lg"
       @input="autoGrow"
     ></textarea>
   </div>
@@ -14,13 +14,14 @@ export default defineComponent({
   name: "InputForm",
   methods: {
     autoGrow(element) {
-      console.log(element.style);
-      // element.style.height = "5px";
-      // element.style.height = element.scrollHeight + "px";
+      element.target.style.height = element.target.scrollHeight + "px";
     },
   },
   mounted() {
-    document.getElementById("");
+    addEventListener("resize", (event) => {
+      const textAreaElm = document.getElementById("custom-terminal-input-form");
+      textAreaElm.style.height = textAreaElm.scrollHeight + "px";
+    });
   },
 });
 </script>
