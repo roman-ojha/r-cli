@@ -1,6 +1,8 @@
 <template>
   <div class="border-solid border-2 border-red-500 w-full h-full">
-    <Info />
+    <div class="mt-4">
+      <Info />
+    </div>
   </div>
 </template>
 
