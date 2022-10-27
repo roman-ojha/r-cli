@@ -4,6 +4,7 @@
       id="custom-terminal-input-form"
       class="bg-transparent text-white outline-none resize-none h-auto overflow-hidden w-full text-lg"
       @input="autoGrow"
+      @keypress="keyPressed"
       autofocus
     ></textarea>
   </div>
@@ -16,6 +17,20 @@ export default defineComponent({
   methods: {
     autoGrow(element) {
       element.target.style.height = element.target.scrollHeight + "px";
+    },
+    keyPressed(elm) {
+      window.addEventListener("keypress", (e) => {
+        console.log(elm.target.value);
+        const textAreaElm = document.getElementById(
+          "custom-terminal-input-form"
+        ) as HTMLTextAreaElement;
+        if (e.keyCode === 13) {
+          // textAreaElm.value = textAreaElm.value.split("\n")[0];
+          return false;
+        } else {
+          return true;
+        }
+      });
     },
   },
   mounted() {
